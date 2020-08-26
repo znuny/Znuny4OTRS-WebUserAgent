@@ -13,7 +13,7 @@ Extends the web user agent module of OTRS and allows (among other things) to def
 
 **Installation**
 
-Download the [package](https://addons.znuny.com/api/addon_repos/public/1093/latest) and install it via admin interface -> package manager or use [Znuny4OTRS-Repo](https://www.znuny.com/add-ons/znuny4otrs-repository).
+Download the [package](https://addons.znuny.com/api/addon_repos/public/1702/latest) and install it via admin interface -> package manager or use [Znuny4OTRS-Repo](https://www.znuny.com/add-ons/znuny4otrs-repository).
 
 **Configuration**
 
@@ -21,7 +21,7 @@ Download the [package](https://addons.znuny.com/api/addon_repos/public/1093/late
 
 **Download**
 
-Download the [latest version](https://addons.znuny.com/api/addon_repos/public/1093/latest).
+Download the [latest version](https://addons.znuny.com/api/addon_repos/public/1702/latest).
 
 **Professional Support**
 
