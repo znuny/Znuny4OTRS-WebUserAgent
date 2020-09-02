@@ -14,5 +14,5 @@
         <File Permission="660" Location="Kernel/Config/Files/XML/Znuny4OTRSWebUserAgent.xml"/>
         <File Permission="660" Location="Kernel/Language/de_Znuny4OTRSWebUserAgent.pm"/>
     </Filelist>
-    <PackageMerge Name="Znuny4OTRS-WebUserAgent" TargetVersion="6.0.1"/>
+    <PackageMerge Name="Znuny4OTRS-EnhancedProxySupport" TargetVersion="6.0.4"/>
 </otrs_package>

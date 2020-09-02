@@ -86,6 +86,13 @@ Simple GET request:
         URL => 'http://example.com/somedata.xml',
         SkipSSLVerification => 1, # (optional)
         NoLog               => 1, # (optional)
+# ---
+# Znuny4OTRS-WebUserAgent
+# ---
+        # Returns the response content (if available) if the request was not successful.
+        # Otherwise only the status will be returned (default behavior).
+        ReturnResponseContentOnError => 1, # optional
+# ---
     );
 
 Or a POST request; attributes can be a hashref like this:
@@ -96,6 +103,13 @@ Or a POST request; attributes can be a hashref like this:
         Data => { Attribute1 => 'Value', Attribute2 => 'Value2' },
         SkipSSLVerification => 1, # (optional)
         NoLog               => 1, # (optional)
+# ---
+# Znuny4OTRS-WebUserAgent
+# ---
+        # Returns the response content (if available) if the request was not successful.
+        # Otherwise only the status will be returned (default behavior).
+        ReturnResponseContentOnError => 1, # optional
+# ---
     );
 
 alternatively, you can use an arrayref like this:
@@ -127,6 +141,13 @@ You can even pass some headers
         },
         SkipSSLVerification => 1, # (optional)
         NoLog               => 1, # (optional)
+# ---
+# Znuny4OTRS-WebUserAgent
+# ---
+        # Returns the response content (if available) if the request was not successful.
+        # Otherwise only the status will be returned (default behavior).
+        ReturnResponseContentOnError => 1, # optional
+# ---
     );
 
 If you need to set credentials
@@ -143,6 +164,13 @@ If you need to set credentials
         },
         SkipSSLVerification => 1, # (optional)
         NoLog               => 1, # (optional)
+# ---
+# Znuny4OTRS-WebUserAgent
+# ---
+        # Returns the response content (if available) if the request was not successful.
+        # Otherwise only the status will be returned (default behavior).
+        ReturnResponseContentOnError => 1, # optional
+# ---
     );
 
 =cut
@@ -249,6 +277,15 @@ sub Request {
         $Response = $UserAgent->post( $Param{URL}, $Param{Data} );
     }
 
+# ---
+# Znuny4OTRS-WebUserAgent
+# ---
+    # get the content to convert internal used charset
+    my $ResponseContent = $Response->decoded_content();
+    if ( defined $ResponseContent && length $ResponseContent ) {
+        $Kernel::OM->Get('Kernel::System::Encode')->EncodeInput( \$ResponseContent );
+    }
+# ---
     if ( !$Response->is_success() ) {
 
         if ( !$Param{NoLog} ) {
@@ -258,14 +295,36 @@ sub Request {
             );
         }
 
-        return (
+# ---
+# Znuny4OTRS-WebUserAgent
+# ---
+#         return (
+#             Status => $Response->status_line(),
+#         );
+
+        my %Response = (
             Status => $Response->status_line(),
         );
+
+        if (
+            $Param{ReturnResponseContentOnError}
+            && defined $ResponseContent
+            && length $ResponseContent
+        ) {
+            $Response{Content} = \$ResponseContent;
+        }
+
+        return %Response;
+# ---
     }
 
-    # get the content to convert internal used charset
-    my $ResponseContent = $Response->decoded_content();
-    $Kernel::OM->Get('Kernel::System::Encode')->EncodeInput( \$ResponseContent );
+# ---
+# Znuny4OTRS-WebUserAgent
+# ---
+#     # get the content to convert internal used charset
+#     my $ResponseContent = $Response->decoded_content();
+#     $Kernel::OM->Get('Kernel::System::Encode')->EncodeInput( \$ResponseContent );
+# ---
 
     if ( $Param{Return} && $Param{Return} eq 'REQUEST' ) {
         return (

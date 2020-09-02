@@ -1,7 +1,7 @@
 # Configuration
 
 # WebUserAgent::NoProxy
-URLs/Hosts which should bypass the proxy server
+URLs/hosts for which no proxy should be used.
 
 # WebUserAgent::UserAgent
-Name of the UserAgent
+User agent string to use for requests.
