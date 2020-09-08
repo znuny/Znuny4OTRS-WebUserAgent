@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <otrs_package version="1.0">
     <Name>Znuny4OTRS-WebUserAgent</Name>
-    <Version>0.0.0</Version>
+    <Version>6.0.1</Version>
+    <ChangeLog Version="6.0.1" Date="2020-09-08 11:20:11 +0200">Initial release for OTRS 6.</ChangeLog>
     <Framework>6.0.x</Framework>
     <PackageRequired Version="6.0.61">Znuny4OTRS-Repo</PackageRequired>
     <Vendor>Znuny GmbH</Vendor>
