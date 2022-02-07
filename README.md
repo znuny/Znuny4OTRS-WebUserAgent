@@ -8,7 +8,7 @@ Extends the web user agent module of OTRS and allows (among other things) to def
 
 **Prerequisites**
 
-- OTRS 6
+- Znuny LTS 6, ((OTRS)) Community Edition 6 or OTRS 6
 - [Znuny4OTRS-Repo](https://www.znuny.com/add-ons/znuny4otrs-repository)
 
 **Installation**
@@ -25,7 +25,7 @@ Download the [latest version](https://addons.znuny.com/api/addon_repos/public/17
 
 **Professional Support**
 
-For this add-on and for OTRS in general visit [www.znuny.com](https://www.znuny.com). Looking forward to hear from you!
+For this add-on and for Znuny in general visit [https://www.znuny.com](https://www.znuny.com). Looking forward to hear from you!
 
 Enjoy!
 
